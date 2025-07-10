@@ -1,6 +1,7 @@
 from langchain_google_genai import ChatGoogleGenerativeAI
 from googletrans import Translator
-AI_TOKEN = "AIzaSyATVrH7HwoH71oO_Ln7zNI80pDL-Qv7QXQ"
+import os
+AI_TOKEN = os.getenv("AI_TOKEN")
 
 llm = ChatGoogleGenerativeAI(
     model="gemini-1.5-flash",
@@ -14,7 +15,7 @@ llm = ChatGoogleGenerativeAI(
 from langchain.vectorstores import Chroma
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
 
-persist_directory = '/Users/vardhansans/Downloads/ChatBot-main/database'
+persist_directory = '/Users/kalle/Downloads/ChatBot-main/database'
 embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001", google_api_key = AI_TOKEN)
 
 vectordb = Chroma(
